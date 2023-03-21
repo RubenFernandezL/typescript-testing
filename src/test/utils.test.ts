@@ -58,3 +58,15 @@ describe("getStringInfo for arg My-String", () => {
     expect(actual.extraInfo).toBeDefined();
   });
 });
+
+describe("Parametrized tests", () => {
+  it.each([
+    { input: "abc", expected: "ABC" },
+    { input: "def", expected: "DEF" },
+    { input: "ghi", expected: "GHI" },
+  ])("$input toUppercase should be $expected", ({ input, expected }) => {
+    const actual = toUpperCase(input);
+
+    expect(actual).toBe(expected);
+  });
+});
